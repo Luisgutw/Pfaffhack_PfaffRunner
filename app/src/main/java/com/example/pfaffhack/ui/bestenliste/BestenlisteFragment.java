@@ -1,4 +1,4 @@
-package com.example.pfaffhack.ui.dashboard;
+package com.example.pfaffhack.ui.bestenliste;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,24 +12,23 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.pfaffhack.R;
-import com.example.pfaffhack.databinding.FragmentDashboardBinding;
+import com.example.pfaffhack.databinding.FragmentBestenlisteBinding;
 
-public class DashboardFragment extends Fragment {
+public class BestenlisteFragment extends Fragment {
 
-    private DashboardViewModel dashboardViewModel;
-    private FragmentDashboardBinding binding;
+    private BestenlisteViewModel bestenlisteViewModel;
+    private FragmentBestenlisteBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+        bestenlisteViewModel =
+                new ViewModelProvider(this).get(BestenlisteViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentBestenlisteBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textDashboard;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        bestenlisteViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);

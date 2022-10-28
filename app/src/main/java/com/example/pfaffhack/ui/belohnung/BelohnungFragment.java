@@ -1,4 +1,4 @@
-package com.example.pfaffhack.ui.notifications;
+package com.example.pfaffhack.ui.belohnung;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,24 +12,23 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.pfaffhack.R;
-import com.example.pfaffhack.databinding.FragmentNotificationsBinding;
+import com.example.pfaffhack.databinding.FragmentBelohnungBinding;
 
-public class NotificationsFragment extends Fragment {
+public class BelohnungFragment extends Fragment {
 
-    private NotificationsViewModel notificationsViewModel;
-    private FragmentNotificationsBinding binding;
+    private BelohnungsViewModel belohnungsViewModel;
+    private FragmentBelohnungBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        notificationsViewModel =
-                new ViewModelProvider(this).get(NotificationsViewModel.class);
+        belohnungsViewModel =
+                new ViewModelProvider(this).get(BelohnungsViewModel.class);
 
-        binding = FragmentNotificationsBinding.inflate(inflater, container, false);
+        binding = FragmentBelohnungBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textNotifications;
-        notificationsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
+        belohnungsViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
             @Override
             public void onChanged(@Nullable String s) {
                 textView.setText(s);
