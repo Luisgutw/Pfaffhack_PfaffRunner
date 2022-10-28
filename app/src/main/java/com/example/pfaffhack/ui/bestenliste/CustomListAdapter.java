@@ -9,6 +9,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
+
 import com.example.pfaffhack.R;
 
 import java.util.List;
@@ -59,7 +62,8 @@ public class CustomListAdapter  extends BaseAdapter {
         holder.stromAnzahl.setText(user.getStromErzeugt() + " kwH");
         holder.number.setText(user.getNumber() + ".");
 
-       // holder.userIconView.setImageResource(R.drawable.ic_launcher_foreground);
+        holder.userIconView.setImageResource(R.drawable.ic_account);
+        DrawableCompat.setTint(holder.userIconView.getDrawable(), ContextCompat.getColor(this.context, R.color.black));
 
         return convertView;
     }
