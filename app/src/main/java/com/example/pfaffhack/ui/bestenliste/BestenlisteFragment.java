@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,10 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.pfaffhack.databinding.FragmentBestenlisteBinding;
+
+import java.util.ArrayList;
+import java.util.List;
+import com.example.pfaffhack.R;
 
 public class BestenlisteFragment extends Fragment {
 
@@ -27,14 +32,42 @@ public class BestenlisteFragment extends Fragment {
         binding = FragmentBestenlisteBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textDashboard;
-        bestenlisteViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+        List<userInfo> user_details = getListData();
+        final ListView listView = (ListView) root.findViewById(R.id.listView);
+        listView.setAdapter(new CustomListAdapter(this.getContext(), user_details));
+
+
         return root;
+    }
+
+    private  List<userInfo> getListData() {
+        List<userInfo> list = new ArrayList<userInfo>();
+        userInfo user1 = new userInfo("Max", 100930, 1);
+        userInfo user2 = new userInfo("Adam", 10930, 2);
+        userInfo user3 = new userInfo("Felix", 1030, 3);
+
+
+        list.add(user1);
+        list.add(user2);
+        list.add(user3);
+        list.add(user1);
+        list.add(user2);
+        list.add(user3);
+        list.add(user1);
+        list.add(user2);
+        list.add(user3);
+        list.add(user1);
+        list.add(user2);
+        list.add(user3);
+        list.add(user1);
+        list.add(user2);
+        list.add(user3);
+        list.add(user1);
+        list.add(user2);
+        list.add(user3);
+
+
+        return list;
     }
 
     @Override

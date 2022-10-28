@@ -1,5 +1,6 @@
 package com.example.pfaffhack;
 
+import android.app.ActionBar;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -15,7 +16,6 @@ import com.example.pfaffhack.databinding.ActivityMainBinding;
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
-
     //Test
     @Override
     protected void onCreate(Bundle savedInstanceState) {
