@@ -57,7 +57,7 @@ public class StatistikFragment extends Fragment {
         barChart = binding.idBarChart;
 
         getBarEntries();
-        barDataSet = new BarDataSet(barEntries, "energy");
+        barDataSet = new BarDataSet(barEntries, "");
         barData = new BarData(barDataSet);
         barChart.setData(barData);
         barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);

@@ -2,6 +2,6 @@
     <string name="app_name">Pfaffhack</string>
     <string name="title_home">Home</string>
     <string name="title_bestenliste">Bestenliste</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_notifications">Belohnungen</string>
     <string name="title_statistik">Statistik</string>
 </resources>
