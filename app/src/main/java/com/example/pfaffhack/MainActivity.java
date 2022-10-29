@@ -27,8 +27,9 @@ public class MainActivity extends AppCompatActivity {
     private ActivityMainBinding binding;
     private PlatformMockApi platformMockApi;
     private EventBroker eventBroker;
-    private int x,y;
+    public static int x,y;
     public static int energy;
+
 
     //Test
     @Override
@@ -98,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                                 // TopicUtil helps you in forming valid topic named that comply to Topic Management
                                 TopicUtil.sharedTopic("running-energy"),
                                 // The Payload is always a String
-                                String.valueOf(energy + 55800) + "Wh"
+                                String.valueOf(energy + 55800) + " Wh"
                         )
                 );
 

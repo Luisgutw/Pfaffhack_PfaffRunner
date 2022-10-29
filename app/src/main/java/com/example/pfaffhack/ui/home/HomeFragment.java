@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.pfaffhack.MainActivity;
 import com.example.pfaffhack.R;
 import com.example.pfaffhack.databinding.FragmentHomeBinding;
 
@@ -82,6 +83,7 @@ public class HomeFragment extends Fragment {
 
 
         draw = new Draw(img.getContext(), 1760,1290,1760+65,1290+65);
+        draw.inv(MainActivity.x, MainActivity.y);
 
         /*
         Bitmap bitmap = Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888);
@@ -98,6 +100,7 @@ public class HomeFragment extends Fragment {
         );
         */
         draw.setBackgroundResource(R.drawable.map_pfaff);
+
         //return root;
         return draw;
     }
