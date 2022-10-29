@@ -25,12 +25,16 @@ public class BestenlisteFragment extends Fragment {
     private FragmentBestenlisteBinding binding;
 
     private int[] werte = {462, 501, 510, 548, 646, 713, 727, 787, 807, 853, 933, 961, 998, 1086, 1108, 1152, 1161, 1194, 1228, 1299, 1358, 1534, 1560, 1607, 1630, 1661, 1729, 1767, 1800, 1915, 1976, 1979, 1995, 2076, 2102, 2104, 2298, 2340, 2377, 2393, 2407, 2409, 2423, 2450, 2463, 2513, 2598, 2634, 2640, 2672, 2700, 2785, 2789, 2837, 2872, 2878, 2932, 2958, 3050, 3058, 3069, 3111, 3287, 3324, 3378, 3451, 3501, 3567, 3590, 3647, 3671, 3749, 3766, 3787, 3864, 3919, 3921, 3928, 3971, 4071, 4081, 4096, 4209, 4234, 4325, 4430, 4434, 4502, 4629, 4642, 4806, 4884, 4904, 4981, 5198};
-
+    private int myNumber = 42;
+    private final String myName = "Max Mustermann";
+    private final int myStrom = 3642;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         bestenlisteViewModel =
                 new ViewModelProvider(this).get(BestenlisteViewModel.class);
+
+        myNumber = getNumber(myStrom);
 
         binding = FragmentBestenlisteBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -41,11 +45,10 @@ public class BestenlisteFragment extends Fragment {
         final TextView ownStrom = (TextView) root.findViewById(R.id.card_stromAnzahl);
         final TextView ownNumber = (TextView) root.findViewById(R.id.card_number);
 
-        int myStrom = 1325;
 
-        ownName.setText("Max Mustermann");
+        ownName.setText(myName);
         ownStrom.setText(myStrom + " W");
-        ownNumber.setText(getNumber(myStrom) + ".");
+        ownNumber.setText(myNumber + ".");
 
 
         listView.setAdapter(new CustomListAdapter(this.getContext(), user_details));
@@ -55,10 +58,11 @@ public class BestenlisteFragment extends Fragment {
     }
 
     private int getNumber(int number){
-        int i = 1;
-        while(number < werte[95 - i] && i < 96){
+        int i = 0;
+        while(number < werte[werte.length - 1 - i] && i < werte.length - 1){
             i++;
         }
+        i++;
         return i;
     }
 
@@ -164,8 +168,13 @@ public class BestenlisteFragment extends Fragment {
         userInfo user2 = new userInfo("Adam", 10930, 2);
         userInfo user3 = new userInfo("Felix", 1030, 3);
 
-        for(int i = 0; i < 95; i++){
-            list.add(new userInfo(names[i], werte[94-i], i+1));
+        for(int i = 0; i < 94; i++){
+            if(i == myNumber-1){
+                list.add(new userInfo(myName, myStrom, myNumber));
+            }
+            else{
+                list.add(new userInfo(names[i], werte[94-i], i+1));
+            }
         }
 
 

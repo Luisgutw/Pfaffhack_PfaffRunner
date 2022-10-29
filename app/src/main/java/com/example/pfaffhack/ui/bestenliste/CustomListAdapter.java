@@ -59,7 +59,7 @@ public class CustomListAdapter  extends BaseAdapter {
 
         userInfo user = this.listData.get(position);
         holder.userName.setText(user.getUserName());
-        holder.stromAnzahl.setText(user.getStromErzeugt() + " kwH");
+        holder.stromAnzahl.setText(user.getStromErzeugt() + " W");
         holder.number.setText(user.getNumber() + ".");
 
         holder.userIconView.setImageResource(R.drawable.ic_account);
