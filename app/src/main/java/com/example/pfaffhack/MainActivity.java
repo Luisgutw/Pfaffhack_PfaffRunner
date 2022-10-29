@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private EventBroker eventBroker;
     private int x,y;
     public static int energy;
+    public static TextView textView = null;
 
     //Test
     @Override
@@ -67,6 +68,10 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        textView = (TextView)toolbar.findViewById(R.id.tb_points);
+        textView.setText(String.valueOf(energy/500));
+
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
