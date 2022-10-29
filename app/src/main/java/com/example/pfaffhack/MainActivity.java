@@ -15,9 +15,18 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.pfaffhack.databinding.ActivityMainBinding;
 
+import de.fraunhofer.iese.platform_dev.enstadtpfaff_platform_mock_api.Event;
+import de.fraunhofer.iese.platform_dev.enstadtpfaff_platform_mock_api.EventBroker;
+import de.fraunhofer.iese.platform_dev.enstadtpfaff_platform_mock_api.PlatformMockApi;
+import de.fraunhofer.iese.platform_dev.enstadtpfaff_platform_mock_api.PlatformMockApiFactory;
+
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
+    private PlatformMockApi platformMockApi;
+    private EventBroker eventBroker;
+    private int x,y;
+
     //Test
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +34,26 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        try {
+            platformMockApi = PlatformMockApiFactory.getDefault().mqtt(
+                    "ssl://broker.platform.pfaffhack.de:8883",
+                    "pfaffhack",
+                    "kaiserslautern",
+                    "gruppenname",
+                    this::handler,
+                    null
+            );
+            eventBroker = platformMockApi.getEventBroker();
+        } catch (EventBroker.CommunicationFailedException e) {
+            System.err.println(e.getMessage());
+        }
+        try {
+            eventBroker.subscribe("platform-mock/services/plate-detection/#");
+        } catch (EventBroker.CommunicationFailedException e) {
+            e.printStackTrace();
+        }
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -38,6 +67,31 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+    }
+
+    private void handler(Event event) {
+        System.out.println(event);
+        String payload = event.getPayload();
+        String topic = event.getTopic();
+        String cut;
+        try{
+            if(!payload.substring(payload.length() -3).equals("se}")) {
+                cut = topic.substring(topic.length() - 5);
+                int n1 = Integer.parseInt(cut.split("_")[0]);
+                int n2 = Integer.parseInt(cut.split("_")[1]);
+
+                x = n1 -53;
+                y = n2 -28;
+
+                System.out.println(x);
+                System.out.println(y);
+
+            }
+        }
+        catch (Exception e) {
+            System.out.print("didnt cut");
+        }
 
     }
 
