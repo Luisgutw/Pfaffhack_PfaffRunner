@@ -17,8 +17,8 @@
         android:title="@string/title_notifications" />
 
     <item
-        android:id="@+id/navigation_statistik"
+        android:id="@+id/navigation_statistics"
         android:icon="@drawable/ic_stats"
-        android:title="@string/title_statistik" />
+        android:title="@string/title_statistics" />
 
 </menu>
