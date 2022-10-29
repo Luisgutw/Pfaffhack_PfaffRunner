@@ -4,10 +4,14 @@ import android.app.ActionBar;
 import android.os.Bundle;
 import android.view.Menu;
 
+import com.example.pfaffhack.ui.battery.BatteryFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -25,6 +29,15 @@ public class MainActivity extends AppCompatActivity {
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        /*
+        BatteryFragment batteryFragmentInstance=new BatteryFragment();
+        FragmentManager batteryFragmentManager=getSupportFragmentManager();
+        FragmentTransaction batteryFragmentTransaction=batteryFragmentManager.beginTransaction();
+        batteryFragmentTransaction.replace(R.id.container,batteryFragmentInstance,"battery_fragment_tag").addToBackStack(null).commit();
+    */
+        this.getSupportFragmentManager().beginTransaction().replace(R.id.container, new BatteryFragment())
+                .addToBackStack(null).commit();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
