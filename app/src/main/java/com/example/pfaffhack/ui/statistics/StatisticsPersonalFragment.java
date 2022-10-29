@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.pfaffhack.MainActivity;
 import com.example.pfaffhack.databinding.FragmentStatisticsBinding;
 import com.example.pfaffhack.databinding.FragmentStatisticsPersonalBinding;
 import com.github.mikephil.charting.charts.BarChart;
@@ -66,6 +67,6 @@ public class StatisticsPersonalFragment extends Fragment {
         barEntries.add(new BarEntry(4f, 500));
         barEntries.add(new BarEntry(5f, 0));
         barEntries.add(new BarEntry(6f, 1000));
-        barEntries.add(new BarEntry(7f, 800));
+        barEntries.add(new BarEntry(7f, MainActivity.energy/4));
     }
 }
