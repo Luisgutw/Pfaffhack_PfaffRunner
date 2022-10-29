@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         textView = (TextView)toolbar.findViewById(R.id.tb_points);
         textView.setText(String.valueOf(energy/500));
 
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each

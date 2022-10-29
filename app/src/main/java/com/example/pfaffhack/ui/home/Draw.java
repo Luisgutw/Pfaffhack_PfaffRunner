@@ -44,8 +44,9 @@ public class Draw extends View {
         paint = new Paint();
         paint.setColor(Color.GREEN);
         paint.setStyle(Paint.Style.FILL_AND_STROKE);
+        paint.setStyle(Paint.Style.FILL);
         paint.setStrokeWidth(10);
-        paint.setStyle(Paint.Style.STROKE);
+        //paint.setStyle(Paint.Style.STROKE);
     }
 
     @Override
@@ -61,7 +62,7 @@ public class Draw extends View {
 
         left = x*(760-230)/4 + 230;
         right = left + 65;
-        top = y *(1240-630)/5 + 630;
+        top = y *(1240-630)/5 + 650;
         bottom = top + 65;
     }
 }
