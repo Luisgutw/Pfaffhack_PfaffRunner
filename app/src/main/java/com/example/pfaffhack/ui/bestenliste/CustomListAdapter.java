@@ -1,6 +1,7 @@
 package com.example.pfaffhack.ui.bestenliste;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,6 +62,18 @@ public class CustomListAdapter  extends BaseAdapter {
         holder.userName.setText(user.getUserName());
         holder.stromAnzahl.setText(user.getStromErzeugt() + " W");
         holder.number.setText(user.getNumber() + ".");
+        if(position == 0){
+            holder.userName.setTextColor(Color.parseColor("#ffd700"));
+            holder.number.setTextColor(Color.parseColor("#ffd700"));
+        }
+        else if(position == 1){
+            holder.userName.setTextColor(Color.parseColor("#c0c0c0"));
+            holder.number.setTextColor(Color.parseColor("#c0c0c0"));
+        }
+        else if(position == 2){
+            holder.userName.setTextColor(Color.parseColor("#bf8970"));
+            holder.number.setTextColor(Color.parseColor("#bf8970"));
+        }
 
         holder.userIconView.setImageResource(R.drawable.ic_account);
         DrawableCompat.setTint(holder.userIconView.getDrawable(), ContextCompat.getColor(this.context, R.color.black));
