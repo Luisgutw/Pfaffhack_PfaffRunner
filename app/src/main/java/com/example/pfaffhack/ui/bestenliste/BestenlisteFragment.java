@@ -27,7 +27,7 @@ public class BestenlisteFragment extends Fragment {
     private int[] werte = {462, 501, 510, 548, 646, 713, 727, 787, 807, 853, 933, 961, 998, 1086, 1108, 1152, 1161, 1194, 1228, 1299, 1358, 1534, 1560, 1607, 1630, 1661, 1729, 1767, 1800, 1915, 1976, 1979, 1995, 2076, 2102, 2104, 2298, 2340, 2377, 2393, 2407, 2409, 2423, 2450, 2463, 2513, 2598, 2634, 2640, 2672, 2700, 2785, 2789, 2837, 2872, 2878, 2932, 2958, 3050, 3058, 3069, 3111, 3287, 3324, 3378, 3451, 3501, 3567, 3590, 3647, 3671, 3749, 3766, 3787, 3864, 3919, 3921, 3928, 3971, 4071, 4081, 4096, 4209, 4234, 4325, 4430, 4434, 4502, 4629, 4642, 4806, 4884, 4904, 4981, 5198};
     private int myNumber = 42;
     private final String myName = "Max Mustermann";
-    private final int myStrom = 3642;
+    private final int myStrom = 2642;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -44,11 +44,46 @@ public class BestenlisteFragment extends Fragment {
         final TextView ownName = (TextView) root.findViewById(R.id.card_userName);
         final TextView ownStrom = (TextView) root.findViewById(R.id.card_stromAnzahl);
         final TextView ownNumber = (TextView) root.findViewById(R.id.card_number);
+        final TextView infoText = (TextView) root.findViewById(R.id.tv_infoStrom);
 
 
         ownName.setText(myName);
         ownStrom.setText(myStrom + " W");
         ownNumber.setText(myNumber + ".");
+
+        if(myStrom > 40000){
+            infoText.setText("280 Stunden fernzusehen");
+        }
+        if(myStrom > 20000){
+            infoText.setText("140 Stunden fernzusehen");
+        }
+        if(myStrom > 10000){
+            infoText.setText("70 Stunden fernzusehen");
+        }
+        if(myStrom > 5000){
+            infoText.setText("35 Stunden fernzusehen");
+        }
+        else if(myStrom > 4000){
+            infoText.setText("etwa 8 Tage einen Kühlschrank mit 300 Litern Fassungsvermögen zu betreiben");
+        }
+        else if(myStrom > 3000){
+            infoText.setText("3 Waschgänge mit der Waschmaschine zu machen");
+        }
+        else if(myStrom > 2000){
+            infoText.setText("etwa 30 Hemden zu bügeln");
+        }
+        else if(myStrom > 1000){
+            infoText.setText("etwa 50 Stunden aktiv am Laptop zu arbeiten");
+        }
+        else if(myStrom > 500){
+            infoText.setText("45 Stunden eine Energiesparlampe brennen zu lassen");
+        }
+        else if(myStrom > 100){
+            infoText.setText("13 Scheiben Toast zu toasten");
+        }
+        else{
+            infoText.setText("kleine Geräte zu laden");
+        }
 
 
         listView.setAdapter(new CustomListAdapter(this.getContext(), user_details));
@@ -164,9 +199,6 @@ public class BestenlisteFragment extends Fragment {
                 "Kira Gutknecht",
                 "Anneliese Ditschlerin"};
         List<userInfo> list = new ArrayList<userInfo>();
-        userInfo user1 = new userInfo("Max", 100930, 1);
-        userInfo user2 = new userInfo("Adam", 10930, 2);
-        userInfo user3 = new userInfo("Felix", 1030, 3);
 
         for(int i = 0; i < 94; i++){
             if(i == myNumber-1){

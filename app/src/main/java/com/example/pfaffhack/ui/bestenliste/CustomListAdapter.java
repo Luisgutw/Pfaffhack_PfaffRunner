@@ -66,13 +66,17 @@ public class CustomListAdapter  extends BaseAdapter {
             holder.userName.setTextColor(Color.parseColor("#ffd700"));
             holder.number.setTextColor(Color.parseColor("#ffd700"));
         }
-        else if(position == 1){
+        else if(user.getNumber() == 2){
             holder.userName.setTextColor(Color.parseColor("#c0c0c0"));
             holder.number.setTextColor(Color.parseColor("#c0c0c0"));
         }
-        else if(position == 2){
+        else if(user.getNumber() == 3){
             holder.userName.setTextColor(Color.parseColor("#bf8970"));
             holder.number.setTextColor(Color.parseColor("#bf8970"));
+        }
+        else{
+            holder.userName.setTextColor(Color.parseColor("#000000"));
+            holder.number.setTextColor(Color.parseColor("#000000"));
         }
 
         holder.userIconView.setImageResource(R.drawable.ic_account);
