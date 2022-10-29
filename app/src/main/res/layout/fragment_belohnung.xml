@@ -37,7 +37,7 @@
             android:id="@+id/ll_scooter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
+            android:layout_margin="12dp"
             android:background="#F6F3F3"
             android:clickable="true"
             android:focusable="true"
@@ -66,7 +66,7 @@
             android:id="@+id/ll_gartenschau"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="8dp"
+            android:layout_margin="12dp"
             android:background="#F6F3F3"
             android:clickable="true"
             android:focusable="true"
@@ -88,14 +88,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:text="400 EP"/>
+                android:text="400 EP" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_hannen"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="8dp"
+            android:layout_margin="12dp"
             android:background="#F6F3F3"
             android:clickable="true"
             android:focusable="true"
@@ -117,14 +117,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:text="600 EP"/>
+                android:text="600 EP" />
         </LinearLayout>
 
         <LinearLayout
             android:id="@+id/ll_kino"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="8dp"
+            android:layout_margin="12dp"
             android:background="#F6F3F3"
             android:clickable="true"
             android:focusable="true"

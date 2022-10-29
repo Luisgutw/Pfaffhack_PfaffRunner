@@ -1,6 +1,8 @@
 package com.example.pfaffhack.ui.belohnung;
 
+import android.app.Activity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
