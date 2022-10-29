@@ -6,6 +6,7 @@ public class userInfo {
     private int stromErzeugt;
     private int number;
 
+
     public userInfo(String userName, int stromErzeugt, int number) {
         this.userName= userName;
         this.stromErzeugt= stromErzeugt;
@@ -22,6 +23,9 @@ public class userInfo {
 
     public int getStromErzeugt() {
         return stromErzeugt;
+    }
+    public  void setStromErzeugt(){
+        this.stromErzeugt += 5;
     }
 
     public void setStromErzeugt(int stromErzeugt) {

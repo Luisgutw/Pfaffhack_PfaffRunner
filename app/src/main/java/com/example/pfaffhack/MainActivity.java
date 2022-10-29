@@ -20,6 +20,7 @@ import de.fraunhofer.iese.platform_dev.enstadtpfaff_platform_mock_api.Event;
 import de.fraunhofer.iese.platform_dev.enstadtpfaff_platform_mock_api.EventBroker;
 import de.fraunhofer.iese.platform_dev.enstadtpfaff_platform_mock_api.PlatformMockApi;
 import de.fraunhofer.iese.platform_dev.enstadtpfaff_platform_mock_api.PlatformMockApiFactory;
+import de.fraunhofer.iese.platform_dev.enstadtpfaff_platform_mock_api.util.TopicUtil;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private PlatformMockApi platformMockApi;
     private EventBroker eventBroker;
     private int x,y;
+    public static int energy;
 
     //Test
     @Override
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
                     null
             );
             eventBroker = platformMockApi.getEventBroker();
+            energy = 2642;
         } catch (EventBroker.CommunicationFailedException e) {
             System.err.println(e.getMessage());
         }
@@ -88,6 +91,16 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println(x);
                 System.out.println(y);
                 HomeFragment.test(x,y);
+                energy += 10;
+                System.out.println(energy);
+                eventBroker.publish(
+                        Event.of(
+                                // TopicUtil helps you in forming valid topic named that comply to Topic Management
+                                TopicUtil.sharedTopic("running-energy"),
+                                // The Payload is always a String
+                                String.valueOf(energy + 55800) + "Wh"
+                        )
+                );
 
             }
         }

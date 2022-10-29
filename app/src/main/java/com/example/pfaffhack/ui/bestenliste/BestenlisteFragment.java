@@ -1,5 +1,7 @@
 package com.example.pfaffhack.ui.bestenliste;
 
+import static com.example.pfaffhack.MainActivity.energy;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.pfaffhack.MainActivity;
 import com.example.pfaffhack.databinding.FragmentBestenlisteBinding;
 
 import java.util.ArrayList;
@@ -27,14 +30,15 @@ public class BestenlisteFragment extends Fragment {
     private int[] werte = {462, 501, 510, 548, 646, 713, 727, 787, 807, 853, 933, 961, 998, 1086, 1108, 1152, 1161, 1194, 1228, 1299, 1358, 1534, 1560, 1607, 1630, 1661, 1729, 1767, 1800, 1915, 1976, 1979, 1995, 2076, 2102, 2104, 2298, 2340, 2377, 2393, 2407, 2409, 2423, 2450, 2463, 2513, 2598, 2634, 2640, 2672, 2700, 2785, 2789, 2837, 2872, 2878, 2932, 2958, 3050, 3058, 3069, 3111, 3287, 3324, 3378, 3451, 3501, 3567, 3590, 3647, 3671, 3749, 3766, 3787, 3864, 3919, 3921, 3928, 3971, 4071, 4081, 4096, 4209, 4234, 4325, 4430, 4434, 4502, 4629, 4642, 4806, 4884, 4904, 4981, 5198};
     private int myNumber = 42;
     private final String myName = "Max Mustermann";
-    private final int myStrom = 2642;
+    private int myStrom = 2642;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         bestenlisteViewModel =
                 new ViewModelProvider(this).get(BestenlisteViewModel.class);
 
-        myNumber = getNumber(myStrom);
+        myNumber = getNumber(energy);
+
 
         binding = FragmentBestenlisteBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -48,6 +52,7 @@ public class BestenlisteFragment extends Fragment {
 
 
         ownName.setText(myName);
+        myStrom = energy;
         ownStrom.setText(myStrom + " W");
         ownNumber.setText(myNumber + ".");
 
