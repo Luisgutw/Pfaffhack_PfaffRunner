@@ -8,6 +8,8 @@ import android.graphics.Path;
 import android.util.AttributeSet;
 import android.view.View;
 
+import com.example.pfaffhack.MainActivity;
+
 public class Draw extends View {
 
     Paint paint;
@@ -17,6 +19,7 @@ public class Draw extends View {
     float top;
     float right;
     float bottom;
+
 
     public Draw(Context context, float left, float top, float right, float bottom) {
         super(context);
@@ -51,5 +54,14 @@ public class Draw extends View {
         super.onDraw(canvas);
 
         canvas.drawRect(left, top, right, bottom, paint);
+    }
+
+    public void inv(int x, int y) {
+        postInvalidate();
+
+        left = x*(760-230)/4 + 230;
+        right = left + 65;
+        top = y *(1240-630)/5 + 630;
+        bottom = top + 65;
     }
 }

@@ -27,6 +27,19 @@ public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
     private FragmentHomeBinding binding;
+    static View root;
+    static Draw draw;
+
+    public static void test(int x, int y) {
+        System.out.print("test");
+        ImageView img = root.findViewById(R.id.imageView);
+        img.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
+
+        draw.inv(x,y);
+
+
+
+    }
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -34,7 +47,7 @@ public class HomeFragment extends Fragment {
                 new ViewModelProvider(this).get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+        root = binding.getRoot();
 
 
 
@@ -48,11 +61,11 @@ public class HomeFragment extends Fragment {
         });*/
 
 
+
         //LinearLayOut Setup
         ImageView img = root.findViewById(R.id.imageView);
         img.setLayoutParams(new LinearLayout.LayoutParams(100, 100));
 
-        Draw draw = new Draw(img.getContext(), 760,1290,760+65,1290+65);
 
         //ImageView Setup
         //ImageView imageView = new ImageView(draw.getContext());
@@ -68,6 +81,7 @@ public class HomeFragment extends Fragment {
 
 
 
+        draw = new Draw(img.getContext(), 1760,1290,1760+65,1290+65);
 
         /*
         Bitmap bitmap = Bitmap.createBitmap(100, 100, Bitmap.Config.ARGB_8888);
