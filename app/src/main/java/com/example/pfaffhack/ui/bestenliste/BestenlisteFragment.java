@@ -50,6 +50,7 @@ public class BestenlisteFragment extends Fragment {
         final TextView ownNumber = (TextView) root.findViewById(R.id.card_number);
         final TextView infoText = (TextView) root.findViewById(R.id.tv_infoStrom);
 
+        MainActivity.textView.setText(String.valueOf(energy/500));
 
         ownName.setText(myName);
         myStrom = energy;
