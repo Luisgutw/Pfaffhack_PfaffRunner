@@ -4,6 +4,7 @@ import android.app.ActionBar;
 import android.os.Bundle;
 import android.view.Menu;
 
+import com.example.pfaffhack.ui.home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -86,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
                 System.out.println(x);
                 System.out.println(y);
+                HomeFragment.test(x,y);
 
             }
         }
