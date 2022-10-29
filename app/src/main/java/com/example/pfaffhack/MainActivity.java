@@ -1,12 +1,18 @@
 package com.example.pfaffhack;
 
 import android.app.ActionBar;
+import android.content.Context;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.Menu;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.pfaffhack.ui.home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.NavController;
@@ -29,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     private EventBroker eventBroker;
     public static int x,y;
     public static int energy;
+    public static TextView textView = null;
 
 
     //Test
@@ -62,6 +69,10 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        textView = (TextView)toolbar.findViewById(R.id.tb_points);
+        textView.setText(String.valueOf(energy/500));
+
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
